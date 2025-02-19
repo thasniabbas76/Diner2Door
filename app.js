@@ -1,21 +1,18 @@
-const parent = React.createElement( //creating React object => html(to browser understands)
-    'div',
-    {id:'parent'},
-    [React.createElement(
-        'div',
-        {id:'child'},
-        [React.createElement('h1',{},"this is h1 tag"),React.createElement('h2',{},"this is h2 tag"),React.createElement('h3',{},"this is h3 tag")]
-    ),
-    React.createElement(
-        'div',
-        {id:'child2'},
-        [React.createElement('h1',{},"this is h1 tag"),React.createElement('h2',{},"this is h2 tag"),React.createElement('h3',{},"this is h3 tag")]
-    )]
-);
+import React from "react";
+import ReactDOM from "react-dom/client"
 
-// const heading = React.createElement("h1",
-//     {id:"heading"},
-//     "Welcome To REACT!"); //creating h1 tag inside react 
-console.log(parent)
-const root = ReactDOM.createRoot(document.getElementById('root')); //created root using ReactDOM library - this is doing to connect browser with react, as we know DOM is a bridge b/w react and browser
-root.render(parent);
+
+//React.creatElement ==> ReactElement is JS object = HTMLElemet(render)
+const heading = React.createElement(  //Its core react 
+    "h1",
+    {id:"heading"},
+    "Hi React");
+
+//JSX React
+
+//JSX ==> React.creatElement is JS object = HTMLElement(render)
+const jsxheading = <h1>HI, React using JSX</h1> // its written in jsx, the output are same for both core react and jsx
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxheading);
