@@ -1,29 +1,73 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
-//JSX React
-//JSX ==> React.creatElement is JS object = HTMLElement(render)
-const Title = () => ( 
-    <h1 className="head">
-    Hi, React using JSX
-    </h1>
-);// its written in jsx, the output are same for both core react and jsx
 
+/**
+ * header
+ *  - logo
+ *  - nav items
+ * body
+ *  - search bar
+ *  - Restaurant container
+ *       - Restaurant card
+ *          -img
+ *          -name of res
+ *          -cuisine
+ *          -star rating
+ *          -distance
+ * footer
+ *   - copyright
+ *   - links
+ *   - address
+ *   - contact
+ */
+const Header = () => {
+    return (
+        <div className="header">
+            <div className = "logo-container">
+                <img 
+                className="logo"
+                src="https://logopond.com/logos/f4e0c01dd59f50febbc133ac7a019011.png"></img>
+            </div>
+            <div className="nav-items">
+                <ul>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Contact Us</li>
+                <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
+}
 
-const numelement = 50000 //we can add any javascript code in JSX using {} in component section
+const RestaurantCard= () => {
+    return(
+        <div className="res-card">
+            <h3>Diner2Door</h3>
+        </div>
+    );
+};
 
-//React Components
-//React functional components - normal javascript function
-//Syntax Option 1:
-const HeadingComponent = () => (
-    <div id="component">
-        <Title />
-        {numelement}
-        <h1 className="heading"> React Functional component </h1>
+const Body = () =>{
+    return (
+    <div className="body">
+        <div className="search">Search</div>
+        <div className="res-container">
+        <RestaurantCard/>
+        </div>
     </div>
-);
-//Syntax Option 2:
-// const HeadingComponent = () => <h1 className="heading">React Funstional component</h2>
+    );
+};
+
+const AppLayout = () => {
+    return (
+        <div className = "app">
+            <Header />
+            <Body />
+        </div>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
